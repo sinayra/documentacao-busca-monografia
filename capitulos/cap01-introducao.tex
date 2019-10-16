@@ -111,6 +111,29 @@ Após isso, você poderá utilizar o terminal do Alpine na máquina hospedeira.
 
 \subsubsection{Transferência de arquivos}\label{transfer}
 
+\begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.2\textwidth]{../images/filezilla.jpg}
+\end{wrapfigure}
+
+Filezilla é um software para realizar transferências de arquivos utilizando o protocolo FTP \footnote{\url{https://filezilla-project.org/}}. Necessariamente, para transferir um arquivo de um servidor para o cliente, o diretório do cliente deve estar com permissão de leitura e escrita.
+
+Para conectar o Filezilla com o Alpine, similar ao Putty, na Seção \ref{conexao}, edite os campos conforme a Listagem \ref{lst2}. Para o endereço do campo \textit{host}, utilize o comando \textit{ifconfig} para descobrir o endereço \textit{inet} .
+
+\begin{lstlisting}[language=bash, label=lst2, caption=Campos do Filezilla para serem alterados]
+    Host: <ENDERECO INET>
+    Nome de usuario: dspace
+    Senha: dspace
+    Porta: 22
+\end{lstlisting}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/filezilla1.png}
+    \caption{Exemplo de conexão.}
+    \label{fig1}
+\end{figure}
+
 \subsection{PostgreeSQL}\label{postgree}
 
 \todo{O que é} \blindtext
