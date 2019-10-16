@@ -55,21 +55,23 @@ Os principais programas que inicializam juntamente com o Alpine são:
     \item MariaDB, seção \ref{mariadb}
 \end{itemize}
 
-Para utilizar, recomenda-se o programa Putty, explicado na Seção \ref{putty}.
+Para utilizar os recursos do Alpine na máquina hospedeira, recomenda-se o programa Putty, explicado na Seção \ref{conexao}.
 
-\subsubsection{Pacotes}
+Para transferir arquivos entre a máquina hospedeira e o Alpine, recomenda-se o programa Filezilla, explicado na Seção \ref{transfer}.
+
+\subsubsection{Gerenciamento de pacotes}
 
 O Alpine utiliza o sistema de gerenciamento de pacotes \lstinline{apk}, que pode ser lido em mais detalhes em \url{https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management}.
 
-Os repositórios de pacotes disponíveis do Alpine podem ser editados utilizando o editor \textit{vim} com o comando:
+A lista dos repositórios de pacotes disponíveis do Alpine podem ser editados utilizando o editor \textit{vim} com o comando:
 
 \begin{lstlisting}[language=bash]
     vim /etc/apk/repositories
 \end{lstlisting}
 
-Atualmente, editou-se os pacotes para utilizarem a versão \textbf{3.3}, disponíveis em \url{http://mirror.math.princeton.edu/pub/alpinelinux/}, que até o momento possuía o pacote \textbf{php-apache} e o pacote \textbf{php-mysql}, os quais foram essenciais para a instalação do sistema Tematres \cite{tematres}.
+Atualmente, a versão dos repositórios escolhidos para baixar os pacotes é a \textbf{3.3}, disponíveis em \url{http://mirror.math.princeton.edu/pub/alpinelinux/}, que até o momento possuía o pacote \textbf{php-apache} e o pacote \textbf{php-mysql}, os quais foram essenciais para a instalação do sistema Tematres \ref{tematres}.
 
-\subsection{Putty}\label{putty}
+\subsubsection{Conexão entre máquina hospedeira e a imagem}\label{conexao}
 
 \begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
     \centering
@@ -106,6 +108,8 @@ Para utilizar o Putty juntamente com a imagem do Alpine disponibilizada, utilize
 \end{figure}
 
 Após isso, você poderá utilizar o terminal do Alpine na máquina hospedeira.
+
+\subsubsection{Transferência de arquivos}\label{transfer}
 
 \subsection{PostgreeSQL}\label{postgree}
 
