@@ -1,0 +1,209 @@
+\subsection{Oracle VM VirtualBox}\label{vbox}
+
+\begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.2\textwidth]{../images/vbox.png}
+\end{wrapfigure}
+
+VirtualBox é um software de virtualização que pode ser instalado em diversos sistemas hospedeiros e tem como objetivo gerenciar máquinas virtuais.
+
+Para este manual, a versão do VirtualBox que está sendo executado é a 6.0.8 em um hospedeiro Windows, e foi o software escolhido para executar a imagem do ambiente Linux Alpine onde é executado o sistema de buscas.
+
+Após a instalação do software\footnotetext{\url{https://www.virtualbox.org/wiki/Downloads}} e dada uma imagem \lstinline{.ova}, para replicar o ambiente no VirtualBox, é necessário:
+\begin{enumerate}
+    \item Escolher a opção do menu \textit{Import Appliance}.
+     \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.5\textwidth]{images/vbox1.png}
+    \end{figure}
+    \item Escrever o caminho da imagem do Alpine \lstinline{.ova}.
+    \item Selecionar a opção \textit{Import} para uma importação básica do sistema. Após esse processo, espere o processo de importação terminar.
+\end{enumerate}
+
+Se a imagem foi instalada corretamente, clique em \textit{Start} no menu principal do VirtualBox e aguardea tela de boas vindas ilustrada na Figura \ref{fig1}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/vbox2.png}
+    \caption{Tela de Boas-Vindas.}
+    \label{fig1}
+\end{figure}
+
+Considerando que nenhuma outra configuração no VirtualBox foi feita além das explicadas neste manual, utilize a tecla \textit{AltGr} para alternar o foco entre o sistema hospedeiro e o sistema cliente. 
+
+\subsection{Alpine Linux}\label{alpine}
+
+ \begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+     \centering
+     \includegraphics[width=0.2\textwidth]{../images/alpine.png}
+     \label{fig2}
+ \end{wrapfigure}
+
+Alpine é uma distribuição Linux para uso não-comerciais, com o foco em eficiência e simplicidade, possuindo apenas recursos básicos e necessários para o ambiente Linux.
+
+A versão utilizada neste sistema é a 3.8, sendo uma imagem de extensão \lstinline{.ova}, que pode ser simulada no programa VirtualBox, explicado na Seção \ref{vbox}. Assim que o sistema é inicializado, é exigido um login e uma senha para utilizar o ambiente. 
+
+\begin{lstlisting}[language=bash, label=lst1, caption=Login e senha de acesso]
+    localhost login: dspace
+    Password: dspace
+\end{lstlisting}
+
+Os principais programas que inicializam juntamente com o Alpine são:
+
+\begin{itemize}
+    \item PostgreeSQL, seção \ref{postgree}
+    \item Apache, seção \ref{apache}
+    \item MariaDB, seção \ref{mariadb}
+\end{itemize}
+
+Para utilizar, recomenda-se o programa Putty, explicado na Seção \ref{putty}.
+
+\subsubsection{Pacotes}
+
+O Alpine utiliza o sistema de gerenciamento de pacotes \lstinline{apk}, que pode ser lido em mais detalhes em \url{https://wiki.alpinelinux.org/wiki/Alpine_Linux_package_management}.
+
+Os repositórios de pacotes disponíveis do Alpine podem ser editados utilizando o editor \textit{vim} com o comando:
+
+\begin{lstlisting}[language=bash]
+    vim /etc/apk/repositories
+\end{lstlisting}
+
+Atualmente, editou-se os pacotes para utilizarem a versão \textbf{3.3}, disponíveis em \url{http://mirror.math.princeton.edu/pub/alpinelinux/}, que até o momento possuía o pacote \textbf{php-apache} e o pacote \textbf{php-mysql}, os quais foram essenciais para a instalação do sistema Tematres \cite{tematres}.
+
+\subsection{Putty}\label{putty}
+
+\begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.2\textwidth]{../images/putty1.png}
+\end{wrapfigure}
+
+Putty é um software de emulação de terminal que suporta conexões SSH e telnet. Desta forma, fica mais simples manipular o cliente, no caso deste manual, o Alpine, sem necessariamente utilizar a máquina virtual, a qual está rodando no VirtualBox.
+
+Para utilizar o Putty juntamente com a imagem do Alpine disponibilizada, utilize o comando \lstinline{ifconfig} para descobrir o endereço \textit{inet} e fazer a conexão entre o Putty e o terminal do alpine.
+
+ \begin{figure}[h]
+ 
+     \begin{subfigure}{0.6\textwidth}
+     \includegraphics[width=0.9\linewidth]{../images/putty2.png} 
+     \caption{ifconfig.}
+     \end{subfigure}
+     \begin{subfigure}{0.4\textwidth}
+     \includegraphics[width=0.9\linewidth]{../images/putty3.png}
+     \caption{Configuração do putty.}
+     \end{subfigure}
+ 
+ \caption{Utilizando Putty.}
+ \end{figure}
+
+ Irá aparecer um aviso sobre conexão nã-segura, o qual pode ser ignorado. O login e a senha serão os mesmos informados na Listagem \ref{lst1}.
+
+\subsection{PostgreeSQL}\label{postgree}
+
+\subsection{Apache}\label{apache}
+
+\subsection{MariaDB}\label{mariadb}
+
+% \begin{wrapfigure}{r}{0.5\textwidth}
+%     \includegraphics[width=0.5\textwidth]{images/email.png}
+%     \caption{Note the link expires after 14 days.}
+%     \label{fig2}
+% \end{wrapfigure}
+
+% Go to your email and click or copy the link provided by Spinitron. 
+% This email should look like Figure~\ref{fig2}
+
+% Remember your email will be your login username.
+
+% Create your password on the page that the link takes you to.
+
+% {\it Please do not forget your password.}
+
+% \clearpage
+% \newpage
+
+% \subsection{Logging In}
+
+% %\begin{wrapfigure}{r}{0.45\textwidth}
+% %    \includegraphics[width=0.45\textwidth]{images/login_after_password.png}
+% %    \caption{The log-in screen.}
+% %    \label{fig3}
+% %\end{wrapfigure}
+
+%  Next, once you have created your new password Spinitron will take you a page that should look like Figure~\ref{fig3a}. 
+
+% It should say ``New password saved.''
+
+% This is the log-in screen. Enter your email address and password to log in.
+
+% NOTE: sometimes Spinitron will take you to the old version of the website. If that happens, simply click the link that says ``Login for Spinitron v2 is here'' as seen in Figure~\ref{fig3b}
+
+% \begin{figure}[h]
+ 
+%     \begin{subfigure}{0.6\textwidth}
+%     \includegraphics[width=0.9\linewidth]{images/login_after_password.png} 
+%     \caption{The log-in screen.}
+%     \label{fig3a}
+%     \end{subfigure}
+%     \begin{subfigure}{0.4\textwidth}
+%     \includegraphics[width=0.9\linewidth]{images/old_version.png}
+%     \caption{The old version of Spinitron.}
+%     \label{fig3b}
+%     \end{subfigure}
+ 
+% \caption{Login screens.}
+% \label{fig:image2}
+% \end{figure}
+
+% %\begin{figure}[h]
+% %\includegraphics[width=0.40\textwidth]{images/old_version.png}
+% %\caption{The old version of Spinitron.}
+% %\label{fig4}
+% %\end{figure}
+
+
+
+% \subsection{Home-Screen and Setup}
+
+% \begin{wrapfigure}{r}{0.45\textwidth}
+%     \includegraphics[width=0.45\textwidth]{images/phone_banner.png}
+%     \caption{The set phone number banner takes you to the User account page.}
+%     \label{fig4}
+% \end{wrapfigure}
+
+% Now you are on the Spinitron DJ Home screen. 
+% It should look like Figure~\ref{fig4}
+
+% Setup your User account by selecting ``User account'' under the drop-down box under your DJ name or click the ``Please set your phone number.'' banner.
+
+% Make sure you put the correct phone number, this is the number that managers will use to contact you in the future.
+
+% \clearpage
+% \newpage
+
+% \subsection{DJ profile}
+
+% (OPTIONAL) Setup your DJ profile. This is accessed using the drop-down box under your DJ name in the top right corner of the page. 
+% You can put as much or little information as you like.
+
+% NOTE: Spinitron uses random photos for anything you do not put in a picture for, you are welcome to leave them as they are, delete them, or replace them.
+
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{images/Dropdown.png}
+%     \caption{The drop-down}
+%     \label{fig5}
+% \end{figure}
+
+% \begin{figure}[h]
+ 
+%     \begin{subfigure}{0.5\textwidth}
+%     \includegraphics[width=1.0\linewidth, height=5cm]{images/DJ_profile1.png} 
+%     \label{fig:DJp1}
+%     \end{subfigure}
+%     \begin{subfigure}{0.5\textwidth}
+%     \includegraphics[width=1.0\linewidth, height=5cm]{images/DJ_profile2.png}
+%     \label{fig:DJp2}
+%     \end{subfigure}
+ 
+% \caption{The DJ profile page}
+% \label{fig6}
+% \end{figure}
