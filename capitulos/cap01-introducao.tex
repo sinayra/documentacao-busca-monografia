@@ -50,6 +50,7 @@ A versão utilizada neste sistema é a 3.8, sendo uma imagem de extensão \lstin
 Os principais programas que inicializam juntamente com o Alpine são:
 
 \begin{itemize}
+    \item Tomcat, seção \ref{tomcat}
     \item PostgreeSQL, seção \ref{postgree}
     \item Apache, seção \ref{apache}
     \item MariaDB, seção \ref{mariadb}
@@ -133,6 +134,29 @@ Para conectar o Filezilla com o Alpine, similar ao Putty, na Seção \ref{conexa
     \caption{Exemplo de conexão.}
     \label{fig1}
 \end{figure}
+
+Se conectado corretamente, o filezilla deve exibir o diretório \textit{dspace}. Na versão do Alpine que foi configurado no dia 10 de outubro, no diretório \textit{home}, existe um diretório chamado \textit{filezilla}, já configurado para permitir leitura, escrita e execução dos arquivos que serão transferidos para esta pasta. \todo{Inseguro. Configurar outro modo para usar filezilla}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/filezilla2.png}
+    \caption{Em vermelho, arquivos e diretório da máquina hospedeira. Em azul, arquivos e diretórios da máquina virtual.}
+    \label{fig1}
+\end{figure}
+
+Para transferir arquivos entre a máquina hospedeira e o Alpine, selecione o arquivo que deseja transferir e arraste para a pasta \textit{filezilla}. Até o momento atual, o único diretório que aceita este tipo de transferência é o diretório \textit{filezilla}. Caso exista a necessidade de mover estes arquivos para outros diretórios no Linux, utilize o Putty, explicado na Seção \ref{conexao}, para mover estes arquivos por linha de comando.
+
+\subsection{Tomcat}\label{tomcat}
+\todo{o que é}
+\begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.2\textwidth]{../images/tomcat.png}
+\end{wrapfigure}
+
+
+\todo{onde é usado} \blindtext
+
+\todo{como conectar} \blindtext
 
 \subsection{PostgreeSQL}\label{postgree}
 
