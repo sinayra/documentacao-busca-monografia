@@ -137,7 +137,7 @@ Para conectar o Filezilla com o Alpine, similar ao Putty, na Seção \ref{conexa
 
 Se conectado corretamente, o filezilla deve exibir o diretório \textit{dspace}. Na versão do Alpine que foi configurado no dia 10 de outubro, no diretório \textit{home}, existe um diretório chamado \textit{filezilla}, já configurado para permitir leitura, escrita e execução dos arquivos que serão transferidos para esta pasta. \todo{Inseguro. Configurar outro modo para usar filezilla}.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=0.5\textwidth]{images/filezilla2.png}
     \caption{Em vermelho, arquivos e diretório da máquina hospedeira. Em azul, arquivos e diretórios da máquina virtual.}
@@ -147,16 +147,40 @@ Se conectado corretamente, o filezilla deve exibir o diretório \textit{dspace}.
 Para transferir arquivos entre a máquina hospedeira e o Alpine, selecione o arquivo que deseja transferir e arraste para a pasta \textit{filezilla}. Até o momento atual, o único diretório que aceita este tipo de transferência é o diretório \textit{filezilla}. Caso exista a necessidade de mover estes arquivos para outros diretórios no Linux, utilize o Putty, explicado na Seção \ref{conexao}, para mover estes arquivos por linha de comando.
 
 \subsection{Tomcat}\label{tomcat}
-\todo{o que é}
 \begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
     \centering
     \includegraphics[width=0.2\textwidth]{../images/tomcat.png}
 \end{wrapfigure}
 
+Tomcat é um servidor web Java, criando um ambiente para executar páginas \textit{JSP} e dentre outras especificações do Java EE.
 
-\todo{onde é usado} \blindtext
+O Tomcat é utilizado para configurar o ambiente do DSpace, comentado em mais detalhes na Seção \ref{dspace}.
 
-\todo{como conectar} \blindtext
+Para a versão \textit{20191010} da imagem do Alpine, o Tomcat conecta na porta 8081 do \textit{localhost}. Por padrão, a porta do Tomcat é a \textit{8080}, mas este valor foi alterado por motivos de testes para uma máquina rodar tanto o Tomcat quanto o Apache. Para configurar o servidor do Tomcat (para alterar a porta, por exemplo), utilize o comando da Listagem \ref{lst:server.xml}.
+
+\begin{lstlisting}[language=bash, label=lst:server.xml, caption=Abrindo server.xml do Tomcat.]
+    vim /usr/local/tomcat/conf/server.xml
+\end{lstlisting}
+
+Antes de inicializar os serviços do Tomcat, verifique se ele já está inicializado com o comando da Listagem \ref{lst:grep.tomcat}. Após usar este comando, o terminal deve imprimir uma mensagem parecida com a Listagem \ref{lst:grep.tomcat.resposta}.
+
+\begin{lstlisting}[language=bash, label=lst:grep.tomcat, caption=Verificando se o TomCat está inicializado.]
+    ps -ef | grep tomcat
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash, breaklines=true, label=lst:grep.tomcat.resposta, caption=Parte de uma resposta de um Tomcat que já está rodando]
+    2646 root      3:15 /usr/lib/jvm/java-1.8-openjdk/bin/java -Djava.util.logging.config.file=/usr/local/apache-tomcat-8.5.40/conf/logging.properties -Djava.util.logging.manager=org.apache.juli....
+\end{lstlisting}
+
+Caso o Tomcat não esteja inicializado, utilize o comando da Listagem \ref{lst:tomcat.start} para inicializar o Tomcat. Caso seja necessário encerrar o Tomcat, utilize o comando da Listagem \ref{lst:tomcat.shutdown}.
+
+\begin{lstlisting}[language=bash, label=lst:tomcat.start, caption=Inicializando Tomcat.]
+    /etc/init.d/tomcat start
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash, label=lst:tomcat.shutdown, caption=Encerrando Tomcat.]
+    /etc/init.d/tomcat stop
+\end{lstlisting}
 
 \subsection{PostgreeSQL}\label{postgree}
 
