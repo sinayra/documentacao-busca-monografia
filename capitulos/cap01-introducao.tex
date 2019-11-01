@@ -50,10 +50,8 @@ A versão utilizada neste sistema é a 3.8, sendo uma imagem de extensão \lstin
 Os principais programas que devem inicializar juntamente com o Alpine são:
 
 \begin{itemize}
-    \item Tomcat, seção \ref{tomcat}
-    \item PostgreeSQL, seção \ref{postgree}
-    \item Apache, seção \ref{apache}
-    \item MariaDB, seção \ref{mariadb}
+    \item Tomcat, seção \ref{tomcat}.
+    \item Apache, seção \ref{apache}.
 \end{itemize}
 
 Para utilizar os recursos do Alpine na máquina hospedeira, recomenda-se o programa Putty, explicado na Seção \ref{conexao}.
@@ -235,9 +233,30 @@ Para visualizar este arquivo na máquina hospedeira, é necessário utilizar o e
     \label{fig:info.php}
 \end{figure}
 
-\subsubsection{MySQL}\label{mysql}
+Uma das configurações que tiveram que ter sido feitas foi a adição de extensões do MySQL e do Ctype no arquivo de configuração do PHP. Para editar o arquivo, utilize o comando na Listagem \ref{lst:php.mysql.ini.caminho} e o conteúdo que foi inserido no arquivo pode ser visualizado na Listagem \ref{lst:php.mysql.ini}. Esta adição foi necessária para que o PHP consiga realizar conexões com o banco e para que ele consiga renderizar corretamente os caracteres em português.
 
-\subsection{MariaDB}\label{mariadb}
+\begin{lstlisting}[language=bash, label=lst:php.mysql.ini.caminho, caption=Abrir no vim o arquivo mysql.ini.]
+    vim /etc/php5/conf.d/mysql.ini
+\end{lstlisting}
+
+\begin{lstlisting}[label=lst:php.mysql.ini, caption=Conteúdo do arquivo mysql.ini.]
+    extension=mysql.so
+    extension=mysqli.so
+    extension=ctype.so
+\end{lstlisting}
+
+\subsubsection{MySQL}\label{mysql}
+\begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.2\textwidth]{../images/mysql.png}
+\end{wrapfigure}
+MySQL é um gerenciador de banco de dados que lida com dados relacionais. Este foi escolhido como SGDB para lidar com dados do Tematres.
+
+Infelizmente, a interface do MySQL na imagem do Alpine da versão \textit{20191010} não funcionou. Porém, todas as funcionalidade e extensões necessárias para que o PHP se conecte com um banco funcionaram como esperado.
+
+Para substituir a interface do MySQL, utilizou-se o MariaDB.
+
+\subsubsection{MariaDB}\label{mariadb}
 
 \todo{O que é} \blindtext
 
