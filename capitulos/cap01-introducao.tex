@@ -250,19 +250,31 @@ Uma das configurações que tiveram que ter sido feitas foi a adição de extens
     \centering
     \includegraphics[width=0.2\textwidth]{../images/mysql.png}
 \end{wrapfigure}
-MySQL é um gerenciador de banco de dados que lida com dados relacionais. Este foi escolhido como SGDB para lidar com dados do Tematres.
+MySQL é um gerenciador de banco de dados que lida com dados relacionais. 
 
 Infelizmente, a interface do MySQL na imagem do Alpine da versão \textit{20191010} não funcionou. Porém, todas as funcionalidade e extensões necessárias para que o PHP se conecte com um banco funcionaram como esperado.
 
 Para substituir a interface do MySQL, utilizou-se o MariaDB.
 
 \subsubsection{MariaDB}\label{mariadb}
+\begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.2\textwidth]{../images/mariadb.png}
+\end{wrapfigure}
+MariaDB é um gerenciador de banco de dados que lida com dados relacionais. Este foi escolhido como SGDB para lidar com dados do Tematres.
 
-\todo{O que é} \blindtext
+Instalou-se o MariaDB, versão 10.2.24, com o comando listado na Listagem \ref{lst:mariadb.add}.
 
-\todo{onde é usado} \blindtext
+\begin{lstlisting}[language=bash, label=lst:mariadb.add, caption=Instalação do MariaDB.]
+    apk add mariadb
+\end{lstlisting}
 
-\todo{como conectar} \blindtext
+Para acessar o MariaDB instalado e configurado na versão \textit{20191010} da imagem do Alpine, utiliza-se o comando da Listagem \ref{lst:mariadb.mysql}.
+
+\begin{lstlisting}[language=bash, label=lst:mariadb.mysql, caption=Acessando o MariaDB.]
+    mysql -u root -p
+    Enter password: root
+\end{lstlisting}
 
 % \begin{wrapfigure}{r}{0.5\textwidth}
 %     \includegraphics[width=0.5\textwidth]{images/email.png}
