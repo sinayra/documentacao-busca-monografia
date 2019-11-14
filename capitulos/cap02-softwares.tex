@@ -1,10 +1,27 @@
 \subsection{Dspace}\label{dspace}
 
-\todo{O que é} \blindtext
+\begin{wrapfigure}{r}{0.2\textwidth} %this figure will be at the right
+    \centering
+    \includegraphics[width=0.2\textwidth]{../images/dspace.png}
+\end{wrapfigure}
+DSpace é um software para gerenciamento de acervo digital.
 
-\todo{onde é usado} \blindtext
+Como é um sistema em Java, ele está sendo executado na pasta \textit{webapp} do Tomcat, podendo ser visualizado na Listagem \ref{lst:dspace.webapp}, tendo seu arquivos fontes localizados no caminho da Listagem \ref{lst:dspace.fonte}. Não esqueça de conferir se o Tomcat (explicado em detalhes na Seção \ref{tomcat}) foi inicializado.
 
-\todo{como instalar} \blindtext
+\begin{lstlisting}[language=bash, label=lst:dspace.webapp, caption=Onde o Dspace é executado.]
+    /usr/local/dspace/webapps/jspui
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash, label=lst:dspace.fonte, caption=Onde os arquivos fonte do Dspace estão.]
+    /usr/local/dspace/webapps/jspui
+\end{lstlisting}
+
+
+Para acessar a página do Dspace, acesse a URL disponível na Listagem \ref{lst:dspace.url}.
+
+\begin{lstlisting}[language=bash, label=lst:dspace.url, caption=Acessando o Dspace.]
+    <ENDERECO INET>:8081/jspui
+\end{lstlisting}
 
 \subsection{Tematres}\label{tematres}
 
@@ -15,12 +32,12 @@
 
 Tematres é uma ferramenta para controlar vocábulos controlados e taxonomias. Suporta análise e categorização de termos de busca através de metadados, fornecendo uma interface web para realizar este controle.
 
-Como é um sistema em PHP, ele atualmente está instalado no diretório \textit{localhost}, que pode ser acessado através do caminho exibido na Listagem \ref{lst:tematres.caminho}.
-\begin{lstlisting}[language=bash, label=lst:tematres.caminho, caption=Instalação do Tematres.]
+Como é um sistema em PHP, ele atualmente está instalado no diretório \textit{localhost}, onde seus arquivos fontes podem ser acessados através do caminho exibido na Listagem \ref{lst:tematres.fonte}.
+\begin{lstlisting}[language=bash, label=lst:tematres.fonte, caption=Arquivos fontes do tematres.]
     /var/www/localhost/htdocs/tematres
 \end{lstlisting}
 
-Para acessar a página de instalação do tematres, acesse a URL disponível na Listagem \ref{lst:tematres.url}
-\begin{lstlisting}[language=bash, label=lst:tematres.url, caption=Instalação do Tematres.]
+Para acessar a página do tematres, acesse a URL disponível na Listagem \ref{lst:tematres.url}
+\begin{lstlisting}[language=bash, label=lst:tematres.url, caption=Acessando o Tematres.]
     <ENDERECO INET>/tematres
 \end{lstlisting}
